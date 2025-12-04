@@ -1,0 +1,43 @@
+-- Disable auto commenting
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function()
+    vim.opt.formatoptions = vim.opt.formatoptions - { "c", "r", "o" }
+  end,
+})
+
+local numbertoggle = vim.api.nvim_create_augroup("numbertoggle", {})
+
+-- Disable numbers for specific filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  group = numbertoggle,
+  pattern = { "alpha", "dashboard", "toggleterm", "help", "qf" },
+  callback = function()
+    vim.wo.number = false
+    vim.wo.relativenumber = false
+  end,
+})
+
+vim.api.nvim_create_autocmd(
+    { "BufEnter", "FocusGained", "InsertLeave", "WinEnter", "CmdlineLeave", "TermLeave" },
+    {
+        group = numbertoggle,
+        callback = function()
+            if vim.opt.number:get() and vim.api.nvim_get_mode() ~= "i" then
+                vim.opt.relativenumber = true
+            end
+        end,
+    }
+)
+
+vim.api.nvim_create_autocmd(
+    { "BufLeave", "FocusLost", "InsertEnter", "WinLeave", "CmdlineEnter" },
+    {
+        group = numbertoggle,
+        callback = function()
+            if vim.opt.number:get() then
+                vim.opt.relativenumber = false
+                vim.cmd("redraw")
+            end
+        end,
+    }
+)
