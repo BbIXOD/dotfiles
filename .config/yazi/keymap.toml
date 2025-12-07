@@ -8,9 +8,9 @@ on  = "<C-y>"
 run = 'shell -- dragon-drop -x -i -T "$1"'
 
 [[mgr.prepend_keymap]]
-on   = "p"
-run  = "plugin smart-paste"
-desc = "Paste into the hovered directory or CWD"
+on   = "P"
+run  = "shell -- wl-paste > pasted-image.png"
+desc = "Paste image from clipboard"
 
 [[mgr.prepend_keymap]]
 on  = "y"
@@ -19,6 +19,39 @@ run = [ 'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t te
 [[mgr.prepend_keymap]]
 on = ["<C-o>"]
 run = 'shell -- setsid dolphin . '
+desc = "Open directory in dolphin"
+
+[[mgr.prepend_keymap]]
+on = "d"
+run = [ "escape --visual", 'shell -- trash-put "$@"' ]
+desc = "Move to trash"
+
+[[mgr.prepend_keymap]]
+on   = "!"
+run  = 'shell "$SHELL" --block'
+desc = "Open $SHELL here"
+
+# trash
+[[mgr.prepend_keymap]]
+on = ["R", "o"]
+run = "plugin recycle-bin -- open"
+desc = "Open Trash"
+[[mgr.prepend_keymap]]
+on = ["R", "e"]
+run = "plugin recycle-bin -- empty"
+desc = "Empty Trash"
+[[mgr.prepend_keymap]]
+on = ["R", "D"]
+run = "plugin recycle-bin -- emptyDays"
+desc = "Empty by days deleted"
+[[mgr.prepend_keymap]]
+on = ["R", "d"]
+run = "plugin recycle-bin -- delete"
+desc = "Delete from Trash"
+[[mgr.prepend_keymap]]
+on = ["R", "r"]
+run = "plugin recycle-bin -- restore"
+desc = "Restore from Trash"
 
 # compress
 [[mgr.prepend_keymap]]
@@ -45,3 +78,8 @@ desc = "Archive selected files (compression level)"
 on   = [ "c", "a", "u" ]
 run  = "plugin compress -phl"
 desc = "Archive selected files (password+header+level)"
+
+# [[mgr.prepend_keymap]]
+# on   = "p"
+# run  = "plugin smart-paste"
+# desc = "Paste into the hovered directory or CWD"
