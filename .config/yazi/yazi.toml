@@ -1,3 +1,9 @@
-[[mgr.prepend_keymap]]
-on  = "<C-n>"
-run = 'shell -- dragon-drop -x -i -T "$1"'
+[opener]
+krita = [
+  { run = 'krita "$@"', orphan = true, desc = "krita", block = false },
+]
+
+[open]
+prepend_rules = [
+  { mime = "image/*", use = [ "open", "krita", "reveal" ] }
+]
