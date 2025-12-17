@@ -9,7 +9,7 @@ run = 'shell -- dragon-drop -x -i -T "$1"'
 
 [[mgr.prepend_keymap]]
 on   = "P"
-run  = "shell -- wl-paste > pasted-image.png"
+run  = "shell -- wl-paste > pasted"
 desc = "Paste image from clipboard"
 
 [[mgr.prepend_keymap]]
@@ -30,6 +30,16 @@ desc = "Move to trash"
 on   = "!"
 run  = 'shell "$SHELL" --block'
 desc = "Open $SHELL here"
+
+[[pick.prepend_keymap]]
+on = "<C-n>"
+run = "arrow next"
+desc = "Next"
+
+[[pick.prepend_keymap]]
+on = "<C-p>"
+run = "arrow prev"
+desc = "Previous"
 
 # trash
 [[mgr.prepend_keymap]]
