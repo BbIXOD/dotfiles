@@ -16,7 +16,7 @@ return {
       require("guess-indent").setup({})
     end,
   },
-  { "Olical/conjure" },
+  -- { "Olical/conjure" },
   {
     "tzachar/highlight-undo.nvim",
     opts = {
