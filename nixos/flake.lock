@@ -1,0 +1,99 @@
+{
+  "nodes": {
+    "forkprince": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1766950768,
+        "narHash": "sha256-wzH7qyZ+YiNLnlatvZ/Pvlz1nRXinmng8T/tf3WLHBI=",
+        "owner": "forkprince",
+        "repo": "nur-packages",
+        "rev": "96a7fc43797844ad0ef362477892742015ef6eb2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "forkprince",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1766980997,
+        "narHash": "sha256-oegDNAvyQwaG3GqSi4U5jpKM7SYHGESGVIuKMRV/lbw=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "7a7b43c7231a439d248179ba8d561dd6cd81799b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nix-flatpak": {
+      "locked": {
+        "lastModified": 1754777568,
+        "narHash": "sha256-0bBqT+3XncgF8F03RFAamw9vdf0VmaDoIJLTGkjfQZs=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "62f636b87ef6050760a8cb325cadb90674d1e23e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1765425892,
+        "narHash": "sha256-jlQpSkg2sK6IJVzTQBDyRxQZgKADC2HKMRfGCSgNMHo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5d6bdbddb4695a62f0d00a3620b37a15275a5093",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1766902085,
+        "narHash": "sha256-coBu0ONtFzlwwVBzmjacUQwj3G+lybcZ1oeNSQkgC0M=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c0b0e0fddf73fd517c3471e546c0df87a42d53f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "forkprince": "forkprince",
+        "home-manager": "home-manager",
+        "nix-flatpak": "nix-flatpak",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

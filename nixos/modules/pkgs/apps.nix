@@ -1,0 +1,19 @@
+{ config, pkgs, inputs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    ghostty
+
+    inputs.forkprince.packages.x86_64-linux.helium-nightly
+    libreoffice
+    vlc
+    krita
+    kdePackages.kdenlive
+    qalculate-qt
+    obs-studio
+
+    ayugram-desktop
+    vesktop
+    zoom-us
+  ];
+  programs.neovim.enable = true;
+}
