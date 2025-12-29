@@ -6,6 +6,7 @@
   curl
   git
   stow
+  yazi
 
   eza
   bat
