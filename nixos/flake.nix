@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -17,12 +21,12 @@
         inherit inputs;
       };
       modules = [
+        ./host
         inputs.nix-flatpak.nixosModules.nix-flatpak
         inputs.home-manager.nixosModules.home-manager
         {
           home-manager.users.maksym = ./home;
         }
-        ./host
         ./modules
       ];
     };

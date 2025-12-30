@@ -9,5 +9,6 @@
     ./dev.nix
     ./utils.nix
     ./flatpak.nix
+    ./game.nix
   ];
 }

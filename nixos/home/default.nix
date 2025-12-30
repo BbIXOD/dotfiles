@@ -8,6 +8,7 @@
     ./fish.nix
     ./git.nix
     ./xdg.nix
+    ./env.nix
   ];
 }
 
