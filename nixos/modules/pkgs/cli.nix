@@ -15,10 +15,13 @@
   fzf
   zoxide
   starship
-
   btop
   gdu
   fastfetch
+  tldr
+  locate
+  unixtools.netstat
+
 
   unzip
   zip

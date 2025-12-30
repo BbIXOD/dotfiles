@@ -17,4 +17,9 @@
     enableAudioWavelength = true;
     enableCalendarEvents = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    fuzzel
+  ];
+
 }

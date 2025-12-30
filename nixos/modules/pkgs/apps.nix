@@ -10,6 +10,15 @@
     kdePackages.kdenlive
     qalculate-qt
     obs-studio
+    dolphin
+    ark
+    okular
+    gwenview
+
+    spectacle
+    kdeconnect
+    filelight
+    partitionmanager
 
     ayugram-desktop
     vesktop

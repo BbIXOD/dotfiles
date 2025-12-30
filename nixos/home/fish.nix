@@ -8,9 +8,10 @@
       upgrade = "sudo nixos-rebuild switch --upgrade --flake /home/maksym/nixos";
       stow_sync = "stow /home/maksym/dotfiles";
       yazi = "y";
+      cd = "z";
     };
-
   };
+  home.file.".config/fish/functions".source = ../config/fish-functions;
 
   programs.starship = {
     enable = true;
