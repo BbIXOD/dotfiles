@@ -9,7 +9,7 @@
       enable = true;
       restartIfChanged = true;
     };
-    
+
     enableSystemMonitoring = true;
     enableClipboard = true;
     enableVPN = true;
@@ -18,8 +18,18 @@
     enableCalendarEvents = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    fuzzel
-  ];
+  services.displayManager.dms-greeter = {
+    compositor = {
+      name = "niri";
+    };
 
+    configHome = "/home/maksym";
+
+    logs = {
+      save = true; 
+      path = "/tmp/dms-greeter.log";
+    };
+
+    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
+  };
 }

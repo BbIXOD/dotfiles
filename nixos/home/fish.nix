@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   programs.fish = {
     enable = true;
@@ -19,13 +19,14 @@
     settings = pkgs.lib.importTOML ../config/starship.toml;
   };
 
+  programs.zoxide.enable = true;
+
   home.packages = with pkgs; [
     fzf
     grc
     fishPlugins.grc
     fishPlugins.fzf
     fishPlugins.autopair
-    fishPlugins.z
     fishPlugins.done
   ];
 

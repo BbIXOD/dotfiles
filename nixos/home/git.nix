@@ -8,5 +8,9 @@
       push.default = "current";
       color.ui = "auto";
     };
+    ignores = [
+      ".geminiignore"
+      "GEMINI.md"
+    ];
   };
 }

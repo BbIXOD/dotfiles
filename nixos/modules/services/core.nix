@@ -26,6 +26,13 @@
     };
   };
 
+  services.locate = {
+    enable = true;
+    package = pkgs.plocate;
+    interval = "daily";
+  };
+
+
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 

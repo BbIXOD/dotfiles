@@ -11,23 +11,34 @@
       url = "git+https://git.outfoxxed.me/quickshell/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-
+  outputs = { self, nixpkgs, ... }@inputs: 
+    let
+    readDir = nixpkgs.lib.filesystem.listFilesRecursive;
+  in
+  {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
       };
-      modules = [
-        ./host
-        inputs.nix-flatpak.nixosModules.nix-flatpak
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager.users.maksym = ./home;
-        }
-        ./modules
+      modules = builtins.concatLists
+      [
+        (readDir ./host)
+        [
+          inputs.nix-flatpak.nixosModules.nix-flatpak
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.users.maksym.imports = readDir ./home;
+          }
+        ]
+        (readDir ./modules)
       ];
     };
   };

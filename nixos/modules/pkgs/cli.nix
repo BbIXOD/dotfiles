@@ -19,7 +19,7 @@
   gdu
   fastfetch
   tldr
-  locate
+  plocate
   unixtools.netstat
 
 
