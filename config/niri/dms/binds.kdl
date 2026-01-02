@@ -1,0 +1,5 @@
+binds {
+    Super+D hotkey-overlay-title="App launcher: walker" { spawn "walker"; }
+    Super+E hotkey-overlay-title="Open file browser: yazi" { spawn "ghostty" "-e" "yazi"; }
+    Super+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+}
