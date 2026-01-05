@@ -12,6 +12,7 @@
     videos = "$HOME/media/videos";
     desktop = "$HOME/tmp";
     templates = "$HOME/tmp";
+    publicShare = "$HOME/public";
   };
 
 }

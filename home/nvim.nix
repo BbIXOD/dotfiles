@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, nixDir, ... }:
+let
+mkLink = config.lib.file.mkOutOfStoreSymlink;
+in
 {
   programs.neovim = {
     enable = true;
@@ -6,7 +9,7 @@
       nvim-treesitter.withAllGrammars
     ];
   };
-  home.file.".config/nvim".source = ../config/nvim;
+  xdg.configFile.nvim.source = mkLink "${nixDir}/config/nvim";
   home.packages = with pkgs; [
     nixfmt
   ];

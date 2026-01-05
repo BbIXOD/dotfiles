@@ -5,7 +5,6 @@
   wget
   curl
   git
-  stow
   yazi
 
   eza

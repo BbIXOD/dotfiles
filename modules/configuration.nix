@@ -21,6 +21,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 0;
+  boot.supportedFilesystems = [ "ntfs" ];
 
   networking.hostName = "nixos";
 
@@ -34,14 +35,13 @@
     ];
   };
 
-  services.xserver.enable = false;
-
   users.users."${username}" = {
     isNormalUser = true;
     description = "Maksym Diachok";
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
   };
 

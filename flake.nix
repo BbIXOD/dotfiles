@@ -27,6 +27,7 @@
     let
       system = "x86_64-linux";
       username = "maksym";
+      nixDir = "/home/${username}/nixos";
       readDir = nixpkgs.lib.filesystem.listFilesRecursive;
       pkgs = nixpkgs.legacyPackages.${system};
     in
@@ -34,7 +35,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs username;
+          inherit inputs username nixDir;
         };
         modules = builtins.concatLists [
           [
@@ -46,7 +47,7 @@
           [
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs username; };
+                extraSpecialArgs = { inherit inputs username nixDir; };
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 users.${username}.imports = readDir ./home;

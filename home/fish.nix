@@ -1,18 +1,25 @@
-{ pkgs, username, ... }:
+{
+  pkgs,
+  nixDir,
+  config,
+  ...
+}:
+let
+  mkLink = config.lib.file.mkOutOfStoreSymlink;
+in
 {
 
   programs.fish = {
     enable = true;
     shellAliases = {
       ls = "eza --icons";
-      rebuild = "nh os switch /home/${username}/nixos";
-      upgrade = "sudo nixos-rebuild switch --upgrade --flake /home/maksym/nixos";
+      rebuild = "sudo -v && nh os switch --impure ${nixDir}";
       stow_sync = "stow /home/maksym/dotfiles";
       yazi = "y";
       cd = "z";
     };
   };
-  home.file.".config/fish/functions".source = ../config/fish-functions;
+  xdg.configFile."fish/functions".source = mkLink "${nixDir}/config/fish-functions";
 
   programs.starship = {
     enable = true;

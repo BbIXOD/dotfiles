@@ -6,11 +6,12 @@
 }:
 {
   programs.niri.enable = true;
-  # services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = false;
   environment.systemPackages = with pkgs; [ libxcursor ];
   services.displayManager.dms-greeter = {
-    enable = true;
+    enable = false;
     compositor = {
       name = "niri";
     };

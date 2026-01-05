@@ -8,6 +8,7 @@
       push.default = "current";
       color.ui = "auto";
       core.editor = "vim";
+      pull.rebase = "true";
     };
     ignores = [
       ".geminiignore"
