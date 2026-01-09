@@ -1,28 +1,24 @@
 {
-  inputs,
   pkgs,
-  username,
+  inputs,
   ...
 }:
 {
+  imports = [ inputs.mango.nixosModules.mango ];
+  programs.mango.enable = true;
   programs.niri.enable = true;
-  services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = false;
-  environment.systemPackages = with pkgs; [ libxcursor ];
-  services.displayManager.dms-greeter = {
-    enable = false;
-    compositor = {
-      name = "niri";
+
+  environment.systemPackages = with pkgs; [ sddm-astronaut ];
+
+  services = {
+    xserver.enable = true;
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = false;
+        theme = "sddm-astronaut-theme";
+        extraPackages = [ pkgs.sddm-astronaut ];
+      };
     };
-
-    configHome = "/home/${username}";
-
-    logs = {
-      save = true;
-      path = "/tmp/dms-greeter.log";
-    };
-
-    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
   };
 }

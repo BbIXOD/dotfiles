@@ -36,6 +36,7 @@ return {
     event = { "InsertLeave", "TextChanged" },
     opts = {
       noautocmd = true,
+      write_all_buffers = true,
     },
   },
   {

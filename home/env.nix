@@ -8,5 +8,6 @@
     PATH = "$HOME/.npm-global/bin:$HOME/flutter/bin:$PATH";
     EDITOR = "nvim";
     VISUAL = "nvim";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 }

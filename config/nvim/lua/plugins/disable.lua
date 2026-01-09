@@ -21,4 +21,8 @@ return {
     "nvim-mini/mini.pairs",
     enabled = false,
   },
+  {
+    "folke/which-key.nvim",
+    enabled = false
+  }
 }

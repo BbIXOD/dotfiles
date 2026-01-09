@@ -7,6 +7,7 @@
     libreoffice
     vlc
     krita
+    qbittorrent
     kdePackages.kdenlive
     qalculate-qt
     obs-studio

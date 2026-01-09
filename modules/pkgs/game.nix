@@ -7,17 +7,6 @@
   services.logmein-hamachi.enable = true;
   systemd.services.logmein-hamachi.wantedBy = lib.mkForce [];
 
-  systemd.user.services.xwayland-satellite = {
-    description = "XWayland Satellite";
-    after = [ "graphical.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.xwayland-satellite}/bin/xwayland-satellite";
-      Restart = "on-failure";
-    };
-    wantedBy = [ "graphical.target" ];
-  };
-
-
   environment.sessionVariables = {
     DISPLAY = ":0";
   };

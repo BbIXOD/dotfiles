@@ -6,7 +6,7 @@
     createDirectories = true;
 
     documents = "$HOME/docs";
-    download = "$HOME/dl";
+    download = "$HOME/downloads";
     music = "$HOME/media/music";
     pictures = "$HOME/media/pictures";
     videos = "$HOME/media/videos";

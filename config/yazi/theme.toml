@@ -1,3 +1,16 @@
 [flavor]
-use = "tokyo-night"
-dark = "tokyo-night"
+use = "catppuccin-macchiato"
+dark = "catppuccin-macchiato"
+
+[icon]
+dirs = [
+  { name = "documents", text = "󰲂" },
+  { name = "downloads", text = "󰉍" },
+  { name = "music", text = "󱍙" },
+  { name = "pictures", text = "󰉏" },
+  { name = "videos", text = "󰉒" },
+  { name = "media", text = "󱧺" },
+  { name = "public", text = "󰉌" },
+  { name = "tmp", text = "󰪺" },
+  { name = "dev", text = "󰲋" },
+]

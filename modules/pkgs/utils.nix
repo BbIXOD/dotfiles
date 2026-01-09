@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     xdg-utils
     wl-clipboard
+    trash-cli
     nerd-fonts.jetbrains-mono
 ];
 

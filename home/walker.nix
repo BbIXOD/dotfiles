@@ -5,6 +5,9 @@
   programs.walker = {
     enable = true;
     runAsService = true;
+    elephant.provider ={
+      desktopapplications.settings.launch_prefix = "systemd-run --user --scope";
+    };
 
     config = {
       theme = "default";
