@@ -20,8 +20,8 @@
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mango = {
-      url = "github:DreamMaoMao/mango";
+    sysc-greet = {
+      url = "github:Nomadcxx/sysc-greet";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -54,6 +54,7 @@
                 extraSpecialArgs = { inherit inputs username nixDir; };
                 useUserPackages = true;
                 useGlobalPkgs = true;
+                backupFileExtension = "hm-backup";
                 users.${username}.imports = readDir ./home;
               };
             }
@@ -64,8 +65,7 @@
       homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs username; };
-        modules = readDir ./home;
+        modules = readDir ./home ++ [ inputs.mango.hmModules.mango ];
       };
-
     };
 }

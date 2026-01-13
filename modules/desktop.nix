@@ -1,24 +1,31 @@
 {
-  pkgs,
   inputs,
+  pkgs,
   ...
 }:
 {
-  imports = [ inputs.mango.nixosModules.mango ];
-  programs.mango.enable = true;
+  imports = [
+    inputs.sysc-greet.nixosModules.default
+  ];
   programs.niri.enable = true;
 
-  environment.systemPackages = with pkgs; [ sddm-astronaut ];
-
-  services = {
-    xserver.enable = true;
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = false;
-        theme = "sddm-astronaut-theme";
-        extraPackages = [ pkgs.sddm-astronaut ];
-      };
-    };
+  services.sysc-greet = {
+    enable = true;
+    compositor = "niri";
   };
+
+
+
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command =
+  #         "${pkgs.greetd.tuigreet}/bin/tuigreet"
+  #         + " --time --remember-session --user-menu"
+  #         + " --theme 'border=brightcyan;text=white;prompt=white;time=brightcyan;action=white;button=green;container=black;input=grey'";
+  #       user = "greeter";
+  #     };
+  #   };
+  # };
 }

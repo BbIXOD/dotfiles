@@ -1,20 +1,16 @@
 { lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-      xwayland-satellite
+    xwayland-satellite
   ];
 
   services.logmein-hamachi.enable = true;
-  systemd.services.logmein-hamachi.wantedBy = lib.mkForce [];
-
-  environment.sessionVariables = {
-    DISPLAY = ":0";
-  };
+  systemd.services.logmein-hamachi.wantedBy = lib.mkForce [ ];
 
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
-    extraCompatPackages = [ pkgs.proton-ge-bin];
+    extraCompatPackages = [ pkgs.proton-ge-bin ];
   };
 
   programs.gamemode.enable = true;

@@ -5,12 +5,14 @@
     nodejs
     deno
     python315
-    rustup
     dotnet-sdk
     gcc
-
+    clang
     dart
     supabase-cli
+    unityhub
+    rustc
+    cargo
 
     gnumake
     cmake
