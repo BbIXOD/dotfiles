@@ -6,6 +6,8 @@
 
   services.logmein-hamachi.enable = true;
   systemd.services.logmein-hamachi.wantedBy = lib.mkForce [ ];
+  networking.firewall.trustedInterfaces = [ "ham0" ];
+
 
   programs.steam = {
     enable = true;

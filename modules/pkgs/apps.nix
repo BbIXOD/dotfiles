@@ -3,19 +3,21 @@
   environment.systemPackages = with pkgs; [
     ghostty
 
+    nemo
     inputs.forkprince.packages.x86_64-linux.helium-nightly
     libreoffice
     vlc
     krita
     qbittorrent
+    qalculate-gtk
     kdePackages.kdenlive
-    qalculate-qt
-    obs-studio
-    kdePackages.dolphin
-    kdePackages.ark
     kdePackages.okular
     kdePackages.gwenview
     kdePackages.partitionmanager
+
+    obs-studio
+    deepfilternet
+    easyeffects
 
     ayugram-desktop
     vesktop

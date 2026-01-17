@@ -1,4 +1,9 @@
-{ inputs, pkgs, username, ... }:
+{
+  inputs,
+  pkgs,
+  username,
+  ...
+}:
 {
   programs.nh = {
     enable = true;
@@ -44,6 +49,16 @@
       "docker"
     ];
   };
+
+  users.users.max = {
+    isNormalUser = true;
+    description = "Maksym";
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
+  };
+  services.desktopManager.cosmic.enable = true;
 
   system.stateVersion = "25.11";
 

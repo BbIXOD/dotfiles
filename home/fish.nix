@@ -8,16 +8,44 @@ let
   mkLink = config.lib.file.mkOutOfStoreSymlink;
 in
 {
+  programs.bash = {
+    enable = true;
+
+    initExtra = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" \
+            && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
+  };
 
   programs.fish = {
     enable = true;
     shellAliases = {
       ls = "eza --icons";
-      rebuild = "sudo -v && nh os switch --impure ${nixDir}";
-      stow_sync = "stow /home/maksym/dotfiles";
       yazi = "y";
       cd = "z";
     };
+    plugins = with pkgs.fishPlugins; [
+      {
+        name = "grc";
+        src = grc.src;
+      }
+      {
+        name = "fzf";
+        src = fzf.src;
+      }
+      {
+        name = "autopair";
+        src = autopair.src;
+      }
+      {
+        name = "done";
+        src = done.src;
+      }
+    ];
   };
   xdg.configFile."fish/functions".source = mkLink "${nixDir}/config/fish-functions";
 
@@ -26,16 +54,10 @@ in
     enableFishIntegration = true;
     settings = pkgs.lib.importTOML ../config/starship.toml;
   };
-
   programs.zoxide.enable = true;
-
   home.packages = with pkgs; [
     fzf
     grc
-    fishPlugins.grc
-    fishPlugins.fzf
-    fishPlugins.autopair
-    fishPlugins.done
   ];
 
 }

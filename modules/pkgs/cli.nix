@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -29,6 +27,13 @@
     tree
     jq
     libarchive
+    libqalculate
+
+    atool
+    rar
+    unrar
+    zip
+    unzip
 
     alsa-utils
   ];

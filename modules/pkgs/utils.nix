@@ -6,6 +6,10 @@
     wl-clipboard
     wlr-randr
     trash-cli
+    dragon-drop
+  ];
+
+  fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
 }

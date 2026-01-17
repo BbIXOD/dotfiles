@@ -1,6 +1,7 @@
 {
   inputs,
-  pkgs,
+  # pkgs,
+  lib,
   ...
 }:
 {
@@ -8,13 +9,15 @@
     inputs.sysc-greet.nixosModules.default
   ];
   programs.niri.enable = true;
+  programs.sway = {
+    enable = true;
+    extraPackages = lib.mkForce [];
+  };
 
   services.sysc-greet = {
     enable = true;
     compositor = "niri";
   };
-
-
 
   # services.greetd = {
   #   enable = true;

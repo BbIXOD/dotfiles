@@ -6,8 +6,10 @@
     ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
     CHROME_EXECUTABLE = "${inputs.forkprince.packages.x86_64-linux.helium-nightly}/bin/helium";
     PATH = "$HOME/.npm-global/bin:$HOME/flutter/bin:$PATH";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
     EDITOR = "nvim";
     VISUAL = "nvim";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    BROWSER = "helium";
+    TERMINAL = "ghostty";
   };
 }
