@@ -1,9 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     ghostty
 
-    nemo
     inputs.forkprince.packages.x86_64-linux.helium-nightly
     libreoffice
     vlc
@@ -14,6 +13,7 @@
     kdePackages.okular
     kdePackages.gwenview
     kdePackages.partitionmanager
+    freetube
 
     obs-studio
     deepfilternet

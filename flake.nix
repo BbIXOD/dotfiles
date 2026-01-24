@@ -11,10 +11,9 @@
       url = "git+https://git.outfoxxed.me/quickshell/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    elephant.url = "github:abenz1267/elephant";
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
@@ -24,6 +23,11 @@
       url = "github:Nomadcxx/sysc-greet";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mango = {
+      url = "github:DreamMaoMao/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nightfox.url = "github:EdenEast/nightfox.nvim";
   };
 
   outputs =
@@ -43,8 +47,8 @@
         };
         modules = builtins.concatLists [
           [
-            inputs.nix-flatpak.nixosModules.nix-flatpak
             inputs.home-manager.nixosModules.home-manager
+            # inputs.catppuccin.nixosModules.catppuccin
           ]
           (readDir ./host)
           (readDir ./modules)
@@ -57,6 +61,10 @@
                 backupFileExtension = "hm-backup";
                 users.${username}.imports = readDir ./home;
               };
+              nix.settings = {
+                extra-substituters = [ "https://vicinae.cachix.org" ];
+                extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
+              };
             }
           ]
         ];
@@ -65,7 +73,7 @@
       homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit inputs username; };
-        modules = readDir ./home ++ [ inputs.mango.hmModules.mango ];
+        modules = readDir ./home;
       };
     };
 }

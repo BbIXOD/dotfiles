@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   nixDir,
   config,
@@ -28,6 +29,7 @@ in
       yazi = "y";
       cd = "z";
     };
+    interactiveShellInit = builtins.readFile "${inputs.nightfox}/extra/nightfox/nightfox.fish";
     plugins = with pkgs.fishPlugins; [
       {
         name = "grc";

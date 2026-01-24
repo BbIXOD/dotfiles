@@ -1,34 +1,22 @@
 {
   inputs,
-  # pkgs,
   lib,
   ...
 }:
 {
   imports = [
     inputs.sysc-greet.nixosModules.default
+    inputs.mango.nixosModules.mango
   ];
   programs.niri.enable = true;
-  programs.sway = {
-    enable = true;
-    extraPackages = lib.mkForce [];
-  };
+  programs.mango.enable = true;
 
   services.sysc-greet = {
     enable = true;
     compositor = "niri";
+    # settings.initial_session = {
+    #   command = "niri-session";
+    #   user = "maksym";
+    # };
   };
-
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command =
-  #         "${pkgs.greetd.tuigreet}/bin/tuigreet"
-  #         + " --time --remember-session --user-menu"
-  #         + " --theme 'border=brightcyan;text=white;prompt=white;time=brightcyan;action=white;button=green;container=black;input=grey'";
-  #       user = "greeter";
-  #     };
-  #   };
-  # };
 }

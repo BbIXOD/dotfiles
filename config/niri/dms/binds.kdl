@@ -1,6 +1,8 @@
 binds {
-    Super+B hotkey-overlay-title="Run browser: helium" { spawn "helium"; }
-    Super+D hotkey-overlay-title="App launcher: walker" { spawn "walker"; }
-    Super+E hotkey-overlay-title="Open file browser: yazi" { spawn "ghostty" "-e" "yazi"; }
-    Super+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Super+Alt+E hotkey-overlay-title="emoji picker" { spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis"; }
+    Super+Alt+V hotkey-overlay-title="clipboard history" { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    Super+B hotkey-overlay-title="browser: helium" { spawn "helium"; }
+    Super+D hotkey-overlay-title="launcher: vicinae" { spawn "vicinae" "toggle"; }
+    Super+E hotkey-overlay-title="file browser: yazi" { spawn "ghostty" "-e" "yazi"; }
+    Super+Return hotkey-overlay-title="terminal: ghostty" { spawn "ghostty"; }
 }

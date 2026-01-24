@@ -9,6 +9,8 @@
     curl
     git
     yazi
+    github-copilot-cli
+    gemini-cli
 
     eza
     bat
@@ -23,11 +25,13 @@
     tldr
     plocate
     unixtools.netstat
+    fortune
 
     tree
     jq
     libarchive
     libqalculate
+    nix-tree
 
     atool
     rar

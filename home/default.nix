@@ -9,4 +9,5 @@ in
     niri.source = mkLink "${nixDir}/config/niri";
     yazi.source = mkLink "${nixDir}/config/yazi";
   };
+
 }

@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, nixDir, ... }:
 {
   home.sessionVariables = {
     SUPABASE_DB_PASSWORD = "there is db pass";
@@ -11,5 +11,7 @@
     VISUAL = "nvim";
     BROWSER = "helium";
     TERMINAL = "ghostty";
+
+    NIX_DIR = "${nixDir}";
   };
 }

@@ -7,9 +7,8 @@
     wlr-randr
     trash-cli
     dragon-drop
-  ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
+    hyphen
+    hyphenDicts.en-us
   ];
 }

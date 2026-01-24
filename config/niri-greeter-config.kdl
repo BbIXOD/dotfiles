@@ -5,6 +5,7 @@
 hotkey-overlay {
     skip-at-startup
 }
+
 output "eDP-1" {
     off
 }
@@ -67,7 +68,7 @@ window-rule {
 // Start gslapper with default wallpaper (forked to background with IPC socket)
 spawn-at-startup "gslapper" "-f" "-I" "/tmp/sysc-greet-wallpaper.sock" "*" "/usr/share/sysc-greet/wallpapers/sysc-greet-default.png"
 
-spawn-sh-at-startup "XDG_CACHE_HOME=/tmp/greeter-cache HOME=/var/lib/greeter /nix/store/kiqgis31c61v4vdhbk9jmzmys8li8qly-kitty-0.45.0/bin/kitty --start-as=fullscreen --config=/etc/greetd/kitty.conf /nix/store/1xasszrwj1qam3x5c72xs55s3jq08s0g-sysc-greet-1.0.7/bin/sysc-greet; /nix/store/dbgpyfkf1z9a1pvpr8nq17qgzl33ab8r-niri-25.11/bin/niri msg action quit --skip-confirmation"
+spawn-sh-at-startup "XDG_CACHE_HOME=/tmp/greeter-cache HOME=/var/lib/greeter /nix/store/lhy33i4r535xlvm9yla05mg3s7rcillz-kitty-0.45.0/bin/kitty --start-as=fullscreen --config=/etc/greetd/kitty.conf /nix/store/fhfnm8yvl0n3ghajdzz158syz6dgcfid-sysc-greet-1.0.7/bin/sysc-greet; /nix/store/m1gj5jk440vzg4rbx5b2wbqhw3z7840m-niri-25.11/bin/niri msg action quit --skip-confirmation"
 
 // Empty binds block = no keybindings work (security for greeter)
 binds {

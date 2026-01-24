@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   username,
+  nixDir,
   ...
 }:
 {
@@ -9,7 +10,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "/home/user/my-nixos-config";
+    flake = nixDir;
   };
 
   nix = {
@@ -19,8 +20,6 @@
     '';
   };
 
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
   nix.settings.auto-optimise-store = true;
 
   boot.loader.systemd-boot.enable = true;
@@ -49,16 +48,6 @@
       "docker"
     ];
   };
-
-  users.users.max = {
-    isNormalUser = true;
-    description = "Maksym";
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-  };
-  services.desktopManager.cosmic.enable = true;
 
   system.stateVersion = "25.11";
 

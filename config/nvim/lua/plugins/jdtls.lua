@@ -13,15 +13,6 @@ return {
           init_options = {
             bundles = {},
           },
-          settings = {
-            java = {
-              project = {
-                referencedLibraries = {
-                  "/home/maksym/help/mpj/lib/mpj.jar",
-                },
-              },
-            },
-          },
         }),
       },
     },
