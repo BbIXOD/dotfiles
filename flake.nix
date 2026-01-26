@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/quickshell/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     stylix = {
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +33,9 @@
       username = "maksym";
       nixDir = "/home/${username}/nixos";
       readDir = nixpkgs.lib.filesystem.listFilesRecursive;
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgsConfig = {
+        allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -48,7 +46,6 @@
         modules = builtins.concatLists [
           [
             inputs.home-manager.nixosModules.home-manager
-            # inputs.catppuccin.nixosModules.catppuccin
           ]
           (readDir ./host)
           (readDir ./modules)
@@ -57,23 +54,24 @@
               home-manager = {
                 extraSpecialArgs = { inherit inputs username nixDir; };
                 useUserPackages = true;
-                useGlobalPkgs = true;
+                sharedModules = [ { nixpkgs.config = pkgsConfig; } ];
                 backupFileExtension = "hm-backup";
                 users.${username}.imports = readDir ./home;
               };
               nix.settings = {
-                extra-substituters = [ "https://vicinae.cachix.org" ];
+                substituters = [ "https://vicinae.cachix.org" ];
+                trusted-substituters = [
+                  "https://vicinae.cachix.org"
+                  "https://cache.nixos.org"
+                ];
                 extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
+                builders-use-substitutes = true;
+                fallback = false;
               };
+              nixpkgs.config = pkgsConfig;
             }
           ]
         ];
-      };
-
-      homeConfigurations.${username} = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs username; };
-        modules = readDir ./home;
       };
     };
 }

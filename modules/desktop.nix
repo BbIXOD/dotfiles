@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  pkgs,
   ...
 }:
 {
@@ -10,6 +11,13 @@
   ];
   programs.niri.enable = true;
   programs.mango.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = lib.mkForce [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
 
   services.sysc-greet = {
     enable = true;

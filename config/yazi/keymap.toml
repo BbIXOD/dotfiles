@@ -7,7 +7,7 @@ prepend_keymap = [
       'shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list',
       "yank"
     ] },
-  { on = "<C-o>",  run = 'shell -- setsid dolphin . ' },
+  { on = "<C-o>",  run = 'shell -- setsid nemo . ' },
   { on = "d",      run = [ "escape --visual", 'shell -- trash-put "$@"' ] },
   { on = "!",      run = 'shell "$SHELL" --block' },
 

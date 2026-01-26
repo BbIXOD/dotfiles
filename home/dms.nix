@@ -1,6 +1,5 @@
 {
   inputs,
-  pkgs,
   config,
   nixDir,
   lib,
@@ -15,13 +14,12 @@ in
   ];
   xdg.configFile.DankMaterialShell.source = mkLink "${nixDir}/config/dms";
 
-  programs.dankMaterialShell = {
+  programs.dank-material-shell = {
     enable = true;
     systemd = {
       enable = true;
       restartIfChanged = true;
     };
-    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
     enableSystemMonitoring = true;
     enableVPN = true;
     enableDynamicTheming = true;

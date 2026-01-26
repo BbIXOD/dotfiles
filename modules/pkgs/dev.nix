@@ -13,6 +13,7 @@
     unityhub
     rustc
     cargo
+    jdk
 
     gnumake
     cmake
