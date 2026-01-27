@@ -6,8 +6,8 @@
 }:
 {
   imports = [
-    inputs.sysc-greet.nixosModules.default
-    inputs.mango.nixosModules.mango
+   inputs.sysc-greet.nixosModules.default
+   inputs.mango.nixosModules.mango
   ];
   programs.niri.enable = true;
   programs.mango.enable = true;
@@ -27,4 +27,5 @@
     #   user = "maksym";
     # };
   };
+
 }

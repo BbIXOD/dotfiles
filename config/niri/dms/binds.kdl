@@ -3,6 +3,6 @@ binds {
     Super+Alt+V hotkey-overlay-title="clipboard history" { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Super+B hotkey-overlay-title="browser: helium" { spawn "helium"; }
     Super+D hotkey-overlay-title="launcher: vicinae" { spawn "vicinae" "toggle"; }
-    Super+E hotkey-overlay-title="file browser: yazi" { spawn "ghostty" "-e" "yazi"; }
-    Super+Return hotkey-overlay-title="terminal: ghostty" { spawn "ghostty"; }
+    Super+E hotkey-overlay-title="file browser: yazi" { spawn "kitty" "-e" "yazi"; }
+    Super+Return hotkey-overlay-title="terminal" { spawn "kitty"; }
 }

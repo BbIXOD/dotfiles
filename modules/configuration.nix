@@ -20,7 +20,6 @@
     '';
   };
 
-
   nix.settings.auto-optimise-store = true;
 
   boot.loader.systemd-boot.enable = true;
@@ -51,5 +50,4 @@
   };
 
   system.stateVersion = "25.11";
-
 }

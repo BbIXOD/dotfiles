@@ -23,6 +23,7 @@
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xremap.url = "github:xremap/nix-flake";
     nightfox.url = "github:EdenEast/nightfox.nvim";
   };
 

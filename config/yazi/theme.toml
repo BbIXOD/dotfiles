@@ -4,7 +4,7 @@ dark = "catppuccin-macchiato"
 
 [icon]
 dirs = [
-  { name = "documents", text = "󰲂" },
+  { name = "docs", text = "󰲂" },
   { name = "downloads", text = "󰉍" },
   { name = "music", text = "󱍙" },
   { name = "pictures", text = "󰉏" },

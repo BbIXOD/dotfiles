@@ -4,18 +4,11 @@ return {
     enabled = false,
   },
   {
-    "folke/flash.nvim",
-    keys = {
-      { "s", false },
-    },
-  },
-  {
     "neovim/nvim-lspconfig",
-    opts = {
-      inlay_hints = {
-        enabled = false,
-      },
-    },
+    opts = function(_, opts)
+      opts.inlay_hint = opts.inlay_hint or {}
+      opts.inlay_hint.enable = false
+    end,
   },
   {
     "nvim-mini/mini.pairs",
@@ -23,6 +16,6 @@ return {
   },
   {
     "folke/which-key.nvim",
-    enabled = false
-  }
+    enabled = false,
+  },
 }
