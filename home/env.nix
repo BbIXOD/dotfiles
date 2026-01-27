@@ -1,7 +1,6 @@
 { inputs, nixDir, ... }:
 {
   home.sessionVariables = {
-    SUPABASE_DB_PASSWORD = "there is db pass";
     npm_config_prefix = "$HOME/.npm-global";
     ANDROID_SDK_ROOT = "$HOME/Android/Sdk";
     CHROME_EXECUTABLE = "${inputs.forkprince.packages.x86_64-linux.helium-nightly}/bin/helium";

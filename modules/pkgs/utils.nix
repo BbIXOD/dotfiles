@@ -6,6 +6,7 @@
     wlr-randr
     trash-cli
     dragon-drop
+    icu
 
     hyphen
     hyphenDicts.en-us

@@ -29,7 +29,9 @@ in
       yazi = "y";
       cd = "z";
     };
-    interactiveShellInit = builtins.readFile "${inputs.nightfox}/extra/nightfox/nightfox.fish";
+    interactiveShellInit = (builtins.readFile "${inputs.nightfox}/extra/nightfox/nightfox.fish") + ''
+      test -e "${nixDir}/secrets/setup.fish" && source "${nixDir}/secrets/setup.fish"
+    '';
     plugins = with pkgs.fishPlugins; [
       {
         name = "grc";
