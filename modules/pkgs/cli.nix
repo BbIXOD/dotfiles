@@ -9,8 +9,8 @@
     curl
     git
     yazi
-    github-copilot-cli
     gemini-cli
+    qwen-code
 
     eza
     bat

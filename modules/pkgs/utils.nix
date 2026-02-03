@@ -7,6 +7,8 @@
     trash-cli
     dragon-drop
     icu
+    slurp
+    grim
 
     hyphen
     hyphenDicts.en-us

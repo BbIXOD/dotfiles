@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   username,
   nixDir,
@@ -9,7 +8,7 @@
   programs.nh = {
     enable = true;
     clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
+    clean.extraArgs = "--keep-since 4d --keep 5";
     flake = nixDir;
   };
 
@@ -20,12 +19,19 @@
     '';
   };
 
-  nix.settings.auto-optimise-store = true;
+  documentation.enable = false;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.timeout = 0;
-  boot.supportedFilesystems = [ "ntfs" ];
+  nix.settings = {
+    auto-optimise-store = true;
+    substituters = [ "https://vicinae.cachix.org" ];
+    trusted-substituters = [
+      "https://vicinae.cachix.org"
+      "https://cache.nixos.org"
+    ];
+    extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
+    builders-use-substitutes = true;
+    fallback = false;
+  };
 
   networking.hostName = "nixos";
 

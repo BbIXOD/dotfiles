@@ -5,6 +5,7 @@
     nodejs
     deno
     python315
+    dotnet-sdk_10
     dotnet-sdk
     gcc
     clang

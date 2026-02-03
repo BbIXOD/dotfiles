@@ -8,13 +8,16 @@ function rebuild
         return 1
     end
 
+    pushd $NIX_DIR
     sudo -v
-    git -C $NIX_DIR add .
+    git add .
 
     argparse u -- $argv
     if set -q _flag_u
-        nh os switch --impure --refresh --update
-    else
-        nh os switch --impure
+        nix flake update
+        # nix run github:fzakaria/nix-auto-follow -- -i
     end
+    sudo nixos-rebuild switch --flake . --impure 
+
+    popd
 end

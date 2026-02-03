@@ -6,8 +6,8 @@
 }:
 {
   imports = [
-   inputs.sysc-greet.nixosModules.default
-   inputs.mango.nixosModules.mango
+    inputs.sysc-greet.nixosModules.default
+    inputs.mango.nixosModules.mango
   ];
   programs.niri.enable = true;
   programs.mango.enable = true;
@@ -15,7 +15,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = lib.mkForce [
-      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
     ];
   };
 

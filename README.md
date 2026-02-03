@@ -35,7 +35,8 @@ sudo nixos-rebuild switch \
   --impure
 ```
 
-## Post install manual steps
+
+### Post install manual steps
 
 - for unity plugin
   `dotnet add package Microsoft.Unity.Analyzers --version 1.19.0` and so on
@@ -43,3 +44,7 @@ sudo nixos-rebuild switch \
 - ofc steam and bottles are manual
 - prob get wallpapers
 - reduce mic internal boost with aslactl
+
+## Home manager standalone
+
+nope for now. you may try to implement it though.

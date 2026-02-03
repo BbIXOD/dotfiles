@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { buffer = 0 })
+-- vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { buffer = 0 })
 
 vim.api.nvim_set_keymap("n", "<Leader>y", '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<Leader>y", '"+y', { noremap = true, silent = true })

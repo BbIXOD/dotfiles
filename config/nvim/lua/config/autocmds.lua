@@ -41,3 +41,10 @@ vim.api.nvim_create_autocmd(
         end,
     }
 )
+
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], { buffer = true })
+  end,
+})
+
