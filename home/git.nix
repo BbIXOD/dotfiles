@@ -9,10 +9,13 @@
       color.ui = "auto";
       core.editor = "vim";
       pull.rebase = "true";
+      init.defaultBranch = "main";
+      advice.defaultBranchName = false;
     };
     ignores = [
       ".geminiignore"
       "GEMINI.md"
+      ".qwenignore"
     ];
   };
 }

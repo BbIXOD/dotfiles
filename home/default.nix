@@ -6,7 +6,6 @@ in
   home.stateVersion = "25.11";
 
   xdg.configFile = {
-    niri.source = mkLink "${nixDir}/config/niri";
     yazi.source = mkLink "${nixDir}/config/yazi";
   };
 

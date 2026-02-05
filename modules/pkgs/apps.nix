@@ -7,7 +7,7 @@
     krita
     qbittorrent
     qalculate-gtk
-    # kdePackages.kdenlive
+    kdePackages.kdenlive
     kdePackages.okular
     kdePackages.gwenview
     kdePackages.partitionmanager

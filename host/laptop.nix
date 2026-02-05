@@ -1,63 +1,32 @@
 { pkgs, lib, ... }:
 {
-  environment.etc."greetd/niri-greeter-config.kdl".text = lib.mkForce ''
-      hotkey-overlay {
-        skip-at-startup
+  environment.etc."greetd/sway-greeter-config".text = lib.mkForce ''
+    default_border none
+    default_floating_border none
+    gaps inner 0
+    gaps outer 0
+    for_window [app_id="kitty"] fullscreen enable
+
+
+
+    output eDP-1 disable
+
+    input * {
+        xkb_layout "us"
+        repeat_delay 400
+        repeat_rate 40
+    }
+    input type:touchpad {
+        tap enabled
     }
 
-    input {
-        keyboard {
-            xkb {
-                layout "us"
-            }
-            repeat-delay 400
-            repeat-rate 40
-        }
+    # hide cursor after 1 second of inactivity
+    seat * hide_cursor 1000
 
-        touchpad {
-            tap;
-        }
-    }
-
-    cursor {
-        hide-when-typing
-        hide-after-inactive-ms 1000
-    }
-
-    layer-rule {
-        match namespace="^wallpaper$"
-        place-within-backdrop true
-    }
-
-    layout {
-        gaps 0
-        center-focused-column "never"
-
-        focus-ring {
-            off
-        }
-
-        border {
-            off
-        }
-    }
-
-    animations {
-        off
-    }
-    window-rule {
-        match app-id="kitty"
-        opacity 0.90
-    }
-
-    // Start gslapper with default wallpaper (forked to background with IPC socket)
-    spawn-at-startup "gslapper" "-f" "-I" "/tmp/sysc-greet-wallpaper.sock" "*" "/usr/share/sysc-greet/wallpapers/sysc-greet-default.png"
-
-    spawn-sh-at-startup "XDG_CACHE_HOME=/tmp/greeter-cache HOME=/var/lib/greeter ${pkgs.kitty}/bin/kitty --start-as=fullscreen --config=/etc/greetd/kitty.conf /nix/store/j1sg6zjkn95dccidyqdy0y3870628f3w-sysc-greet-1.0.7/bin/sysc-greet; /nix/store/0dvcjjv01iy6ranpqniw779i3p1r0868-niri-25.11/bin/niri msg action quit --skip-confirmation"
-
-    // Empty binds block = no keybindings work (security for greeter)
-    binds {
-    }
+    # Startup applications
+    # Start gslapper with default wallpaper (forked to background with IPC socket)
+    exec gslapper -f -I /tmp/sysc-greet-wallpaper.sock '*' /usr/share/sysc-greet/wallpapers/sysc-greet-default.png
+    exec "XDG_CACHE_HOME=/tmp/greeter-cache HOME=/var/lib/greeter ${pkgs.kitty}/bin/kitty --start-as=fullscreen --config=/etc/greetd/kitty.conf /nix/store/j1sg6zjkn95dccidyqdy0y3870628f3w-sysc-greet-1.0.7/bin/sysc-greet; /nix/store/5dql40plq59lzyz999flqmd4fvdm07yd-sway-1.11/bin/swaymsg exit"
   '';
 
   nix.settings = {
