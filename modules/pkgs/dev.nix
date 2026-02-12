@@ -11,10 +11,10 @@
     clang
     dart
     supabase-cli
-    unityhub
     rustc
     cargo
     jdk
+    godot
 
     gnumake
     cmake

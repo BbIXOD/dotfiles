@@ -7,26 +7,21 @@
 }:
 let
   mkLink = config.lib.file.mkOutOfStoreSymlink;
-in
-{
-  programs.bash = {
-    enable = true;
-
-    initExtra = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" \
-            && -z ''${BASH_EXECUTION_STRING} ]]
-      then
-        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-      fi
-    '';
+  fishFunctionsDir = "${nixDir}/config/fish-functions";
+  files = builtins.attrNames (builtins.readDir fishFunctionsDir);
+  mkEntry = name: {
+    name = "fish/functions/${name}";
+    value.source = mkLink "${fishFunctionsDir}/${name}";
   };
 
+in
+{
   programs.fish = {
     enable = true;
     shellAliases = {
       ls = "eza --icons";
-      yazi = "y";
+      yazi = "yy";
+      y = "yy";
       cd = "z";
     };
     interactiveShellInit = (builtins.readFile "${inputs.nightfox}/extra/nightfox/nightfox.fish") + ''
@@ -51,7 +46,7 @@ in
       }
     ];
   };
-  xdg.configFile."fish/functions".source = mkLink "${nixDir}/config/fish-functions";
+  xdg.configFile = builtins.listToAttrs (map mkEntry files);
 
   programs.starship = {
     enable = true;
@@ -64,4 +59,5 @@ in
     grc
   ];
 
+  programs.direnv.enable = true;
 }

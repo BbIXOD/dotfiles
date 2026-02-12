@@ -18,15 +18,17 @@
     mime.enable = true;
     mimeApps = {
       enable = true;
-      # associations.added = {
-      #   "application/pdf" = [ "okular.desktop" ];
-      #   "x-scheme-handler/http" = [ "helium.desktop" ];
-      #   "x-scheme-handler/https" = [ "helium.desktop" ];
-      # };
       defaultApplications = {
         "application/pdf" = [ "org.kde.okular.desktop" ];
         "x-scheme-handler/http" = [ "helium.desktop" ];
         "x-scheme-handler/https" = [ "helium.desktop" ];
+        "x-scheme-handler/ftp" = [ "helium.desktop" ];
+        "image/*" = [ "org.kde.gwenview.desktop" ];
+        "audio/*" = [ "vlc.desktop" ];
+        "video/*" = [ "vlc.desktop" ];
+        "text/*" = [ "nvim.desktop" ];
+        "application/json" = [ "nvim.desktop" ];
+        "inode/directory" = [ "yazi.desktop" ];
       };
     };
   };

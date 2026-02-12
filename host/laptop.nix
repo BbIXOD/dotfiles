@@ -1,4 +1,18 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  nixDir,
+  ...
+}:
+let
+  runtimePath = lib.makeBinPath [
+    pkgs.wlr-randr
+    pkgs.gnugrep
+    pkgs.gawk
+    pkgs.coreutils
+  ];
+in
 {
   environment.etc."greetd/sway-greeter-config".text = lib.mkForce ''
     default_border none
@@ -26,8 +40,24 @@
     # Startup applications
     # Start gslapper with default wallpaper (forked to background with IPC socket)
     exec gslapper -f -I /tmp/sysc-greet-wallpaper.sock '*' /usr/share/sysc-greet/wallpapers/sysc-greet-default.png
-    exec "XDG_CACHE_HOME=/tmp/greeter-cache HOME=/var/lib/greeter ${pkgs.kitty}/bin/kitty --start-as=fullscreen --config=/etc/greetd/kitty.conf /nix/store/j1sg6zjkn95dccidyqdy0y3870628f3w-sysc-greet-1.0.7/bin/sysc-greet; /nix/store/5dql40plq59lzyz999flqmd4fvdm07yd-sway-1.11/bin/swaymsg exit"
+    exec "XDG_CACHE_HOME=/tmp/greeter-cache HOME=/var/lib/greeter ${pkgs.kitty}/bin/kitty --start-as=fullscreen --config=/etc/greetd/kitty.conf ${
+      inputs.sysc-greet.packages.${pkgs.system}.default
+    }/bin/sysc-greet; ${pkgs.sway}/bin/swaymsg exit"
   '';
+
+  systemd.user.services.screen-toggle = {
+    unitConfig = {
+      Description = "Disable laptop screen when HDMI connected";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    serviceConfig = {
+      Type = "oneshot";
+      Environment = "PATH=${runtimePath}";
+      ExecStart = "${nixDir}/scripts/screen-toggle.fish";
+    };
+    wantedBy = [ "graphical-session.target" ];
+  };
 
   nix.settings = {
     cores = 5;

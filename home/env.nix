@@ -6,6 +6,8 @@
     PATH = "$HOME/flutter/bin:$PATH";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland;xcb";
+
     EDITOR = "nvim";
     VISUAL = "nvim";
     BROWSER = "helium";

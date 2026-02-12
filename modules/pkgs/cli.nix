@@ -8,7 +8,6 @@
     wget
     curl
     git
-    yazi
     gemini-cli
     qwen-code
 
@@ -41,5 +40,4 @@
 
     alsa-utils
   ];
-
 }

@@ -23,12 +23,6 @@
 
   nix.settings = {
     auto-optimise-store = true;
-    substituters = [ "https://vicinae.cachix.org" ];
-    trusted-substituters = [
-      "https://vicinae.cachix.org"
-      "https://cache.nixos.org"
-    ];
-    extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
     builders-use-substitutes = true;
     fallback = false;
   };

@@ -4,9 +4,4 @@ let
 in
 {
   home.stateVersion = "25.11";
-
-  xdg.configFile = {
-    yazi.source = mkLink "${nixDir}/config/yazi";
-  };
-
 }
