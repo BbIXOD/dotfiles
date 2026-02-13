@@ -6,13 +6,7 @@
   ...
 }:
 let
-  mkLink = config.lib.file.mkOutOfStoreSymlink;
-  fishFunctionsDir = "${nixDir}/config/fish-functions";
-  files = builtins.attrNames (builtins.readDir fishFunctionsDir);
-  mkEntry = name: {
-    name = "fish/functions/${name}";
-    value.source = mkLink "${fishFunctionsDir}/${name}";
-  };
+  linkDir = import ../lib/linkDir.nix { inherit config; };
 
 in
 {
@@ -46,7 +40,7 @@ in
       }
     ];
   };
-  xdg.configFile = builtins.listToAttrs (map mkEntry files);
+  xdg.configFile = linkDir "${nixDir}/config/fish-functions" "fish/functions";
 
   programs.starship = {
     enable = true;

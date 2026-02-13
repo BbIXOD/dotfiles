@@ -7,6 +7,7 @@
   services.upower.enable = true;
   hardware.bluetooth.enable = true;
   services.udisks2.enable = true;
+  services.flatpak.enable = true;
   services.locate = {
     enable = true;
     package = pkgs.plocate;

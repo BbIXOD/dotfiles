@@ -53,7 +53,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs username nixDir;
+          inherit inputs username nixDir system;
         };
         modules = builtins.concatLists [
           [

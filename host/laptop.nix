@@ -11,6 +11,7 @@ let
     pkgs.gnugrep
     pkgs.gawk
     pkgs.coreutils
+    pkgs.fish
   ];
 in
 {

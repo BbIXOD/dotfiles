@@ -1,15 +1,22 @@
 {
   inputs,
   pkgs,
+  system,
   ...
 }:
+let
+  mangoPkg = import ../lib/mango.nix { inherit inputs system; };
+in
 {
   imports = [
     inputs.sysc-greet.nixosModules.default
     inputs.mango.nixosModules.mango
   ];
   programs.sway.enable = true;
-  programs.mango.enable = true;
+  programs.mango = {
+    enable = true;
+    package = mangoPkg.mango;
+  };
 
   xdg.portal = {
     enable = true;

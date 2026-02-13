@@ -6,21 +6,20 @@
   ...
 }:
 let
-  mkLink = config.lib.file.mkOutOfStoreSymlink;
-  mango = inputs.mango.packages.${system}.mango.overrideAttrs (old: {
-    patches = [ "${inputs.mango-zoom}/screen-zoom.patch" ];
-  });
+  linkDir = import  ../lib/linkDir.nix { inherit config; };
+  mangoPkg = import  ../lib/mango.nix { inherit inputs system; };
 in
 {
   imports = [
     inputs.mango.hmModules.mango
   ];
 
-  xdg.configFile.mango.source = mkLink "${nixDir}/config/mango";
+  xdg.configFile = linkDir "${nixDir}/config/mango" "mango";
 
   wayland.windowManager.mango = {
     enable = true;
-    package = mango;
+    package = mangoPkg.mango;
+    autostart_sh = " ";
     systemd = {
       enable = true;
       variables = [
