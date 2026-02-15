@@ -9,9 +9,9 @@ return {
         ["dap-repl"] = false,
         snacks_picker_input = false,
         text = false,
+        markdown = false,
       },
     })
-
     vim.keymap.set("i", "<A-f>", function()
       require("neocodeium").accept()
     end)

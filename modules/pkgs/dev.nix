@@ -7,8 +7,9 @@
     python315
     dotnet-sdk_10
     dotnet-sdk
-    gcc
+    clang-tools
     clang
+    gcc
     dart
     supabase-cli
     rustc

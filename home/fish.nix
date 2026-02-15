@@ -14,8 +14,7 @@ in
     enable = true;
     shellAliases = {
       ls = "eza --icons";
-      yazi = "yy";
-      y = "yy";
+      yazi = "y";
       cd = "z";
     };
     interactiveShellInit = (builtins.readFile "${inputs.nightfox}/extra/nightfox/nightfox.fish") + ''

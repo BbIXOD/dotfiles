@@ -549,7 +549,7 @@
     "session": ""
   },
   "plugins": {
-    "autoUpdate": false
+    "autoUpdate": true
   },
   "desktopWidgets": {
     "enabled": false,

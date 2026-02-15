@@ -28,6 +28,10 @@ in
   home.file.".local/bin/mshot".source = "${msnap}/bin/mshot";
   xdg.configFile."msnap/mcast.conf".source = mkLink "${nixDir}/config/msnap/mcast.conf";
   xdg.configFile."msnap/mshot.conf".source = mkLink "${nixDir}/config/msnap/mshot.conf";
-  xdg.configFile."msnap/gui".source = "${msnap}/share/gui";
 
+  xdg.configFile."msnap/gui.conf".source =
+    "${msnap}/share/msnap/gui.conf";
+
+  xdg.configFile."msnap/gui".source =
+    "${msnap}/share/msnap/gui";
 }

@@ -1,7 +1,3 @@
-[flavor]
-use = "catppuccin-macchiato"
-dark = "catppuccin-macchiato"
-
 [icon]
 dirs = [
   { name = "docs", text = "󰲂" },

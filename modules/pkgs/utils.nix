@@ -13,4 +13,8 @@
     hyphen
     hyphenDicts.en-us
   ];
+
+  fonts.packages = with pkgs; [
+    corefonts
+  ];
 }
