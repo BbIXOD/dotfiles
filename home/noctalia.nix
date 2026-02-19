@@ -22,7 +22,7 @@
       mSecondary = "#9d79d6";
       mShadow = "#000000";
       mSurface = "#192330";
-      mHover = "#01434f";
+      mHover = "#02499c";
       mSurfaceVariant = "#29394f";
       mTertiary = "#81b29a";
     };

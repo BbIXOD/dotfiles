@@ -18,11 +18,4 @@
   programs.gamemode.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-
-  boot.kernelModules = [ "zram" ];
-  zramSwap = {
-    algorithm = "zstd";
-    enable = true;
-    memoryPercent = 100;
-  };
 }

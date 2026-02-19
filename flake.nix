@@ -17,7 +17,7 @@
       url = "github:slapah/MangoWC-Zoom";
       flake = false;
     };
-    forkprince.url = "github:forkprince/nur-packages";
+    helium.url = "github:ForkPrince/nur-packages";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     home-manager.url = "github:nix-community/home-manager";
     stylix.url = "github:nix-community/stylix";
@@ -26,7 +26,7 @@
     mango.url = "github:DreamMaoMao/mango";
     xremap.url = "github:xremap/nix-flake";
 
-    forkprince.inputs.nixpkgs.follows = "nixpkgs";
+    helium.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
@@ -53,7 +53,7 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs username nixDir system;
+          inherit inputs username nixDir;
         };
         modules = builtins.concatLists [
           [
@@ -64,7 +64,7 @@
           [
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs username nixDir system; };
+                extraSpecialArgs = { inherit inputs username nixDir; };
                 useUserPackages = true;
                 sharedModules = [ { nixpkgs.config = pkgsConfig; } ];
                 backupFileExtension = "hm-backup";

@@ -2,12 +2,12 @@
   inputs,
   config,
   nixDir,
-  system,
+  pkgs,
   ...
 }:
 let
   linkDir = import  ../lib/linkDir.nix { inherit config; };
-  mangoPkg = import  ../lib/mango.nix { inherit inputs system; };
+  mangoPkg = import  ../lib/mango.nix { inherit inputs pkgs; };
 in
 {
   imports = [

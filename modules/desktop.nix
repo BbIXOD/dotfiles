@@ -1,11 +1,10 @@
 {
   inputs,
   pkgs,
-  system,
   ...
 }:
 let
-  mangoPkg = import ../lib/mango.nix { inherit inputs system; };
+  mangoPkg = import ../lib/mango.nix { inherit pkgs inputs; };
 in
 {
   imports = [

@@ -39,5 +39,6 @@
     unzip
 
     alsa-utils
+    tintin
   ];
 }

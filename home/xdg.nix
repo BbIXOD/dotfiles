@@ -29,6 +29,7 @@
         "text/*" = [ "nvim.desktop" ];
         "application/json" = [ "nvim.desktop" ];
         "inode/directory" = [ "yazi.desktop" ];
+        "x-scheme-handler/terminal" = [ "kitty.desktop" ];
       };
     };
   };

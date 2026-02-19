@@ -1,7 +1,7 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    inputs.forkprince.packages.${system}.helium-nightly
+    inputs.helium.packages.${stdenv.hostPlatform.system}.helium-nightly
     libreoffice
     vlc
     krita

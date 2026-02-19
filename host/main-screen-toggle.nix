@@ -24,8 +24,6 @@ in
 
 
 
-    output eDP-1 disable
-
     input * {
         xkb_layout "us"
         repeat_delay 400
@@ -38,11 +36,13 @@ in
     # hide cursor after 1 second of inactivity
     seat * hide_cursor 1000
 
+    exec "PATH=${runtimePath} ${nixDir}/scripts/screen-toggle.fish"
+
     # Startup applications
     # Start gslapper with default wallpaper (forked to background with IPC socket)
     exec gslapper -f -I /tmp/sysc-greet-wallpaper.sock '*' /usr/share/sysc-greet/wallpapers/sysc-greet-default.png
     exec "XDG_CACHE_HOME=/tmp/greeter-cache HOME=/var/lib/greeter ${pkgs.kitty}/bin/kitty --start-as=fullscreen --config=/etc/greetd/kitty.conf ${
-      inputs.sysc-greet.packages.${pkgs.system}.default
+      inputs.sysc-greet.packages.${pkgs.stdenv.hostPlatform.system}.default
     }/bin/sysc-greet; ${pkgs.sway}/bin/swaymsg exit"
   '';
 
@@ -59,14 +59,4 @@ in
     };
     wantedBy = [ "graphical-session.target" ];
   };
-
-  nix.settings = {
-    cores = 5;
-    max-jobs = 2;
-  };
-  systemd.services.nix-daemon.serviceConfig = {
-    MemoryHigh = "5G";
-    MemoryMax = "6G";
-  };
-
 }
