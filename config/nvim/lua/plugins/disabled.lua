@@ -1,3 +1,4 @@
+-- Disabled plugins
 return {
   {
     "akinsho/bufferline.nvim",

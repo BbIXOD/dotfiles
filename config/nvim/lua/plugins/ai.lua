@@ -1,34 +1,21 @@
 return {
   "monkoose/neocodeium",
   event = "VeryLazy",
-  config = function()
-    local neocodeium = require("neocodeium")
-    neocodeium.setup({
-      filetypes = {
-        TelescopePrompt = false,
-        ["dap-repl"] = false,
-        snacks_picker_input = false,
-        text = false,
-        markdown = false,
-      },
-    })
-    vim.keymap.set("i", "<A-f>", function()
-      require("neocodeium").accept()
-    end)
-    vim.keymap.set("i", "<A-w>", function()
-      require("neocodeium").accept_word()
-    end)
-    vim.keymap.set("i", "<A-a>", function()
-      require("neocodeium").accept_line()
-    end)
-    vim.keymap.set("i", "<A-e>", function()
-      require("neocodeium").cycle_or_complete()
-    end)
-    vim.keymap.set("i", "<A-r>", function()
-      require("neocodeium").cycle_or_complete(-1)
-    end)
-    vim.keymap.set("i", "<A-c>", function()
-      require("neocodeium").clear()
-    end)
-  end,
+  opts = {
+    filetypes = {
+      TelescopePrompt = false,
+      ["dap-repl"] = false,
+      snacks_picker_input = false,
+      text = false,
+      markdown = false,
+    },
+  },
+  keys = {
+    { "i", "<A-f>", function() require("neocodeium").accept() end, { desc = "Accept completion" } },
+    { "i", "<A-w>", function() require("neocodeium").accept_word() end, { desc = "Accept word" } },
+    { "i", "<A-a>", function() require("neocodeium").accept_line() end, { desc = "Accept line" } },
+    { "i", "<A-e>", function() require("neocodeium").cycle_or_complete() end, { desc = "Cycle next" } },
+    { "i", "<A-r>", function() require("neocodeium").cycle_or_complete(-1) end, { desc = "Cycle prev" } },
+    { "i", "<A-c>", function() require("neocodeium").clear() end, { desc = "Clear completion" } },
+  },
 }

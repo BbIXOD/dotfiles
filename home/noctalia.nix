@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, lib, pkgs, ... }:
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -26,5 +26,39 @@
       mSurfaceVariant = "#29394f";
       mTertiary = "#81b29a";
     };
+    plugins = {
+      sources = [
+        {
+          enabled = true;
+          name = "Official Noctalia Plugins";
+          url = "https://github.com/noctalia-dev/noctalia-plugins";
+        }
+        {
+          enabled = true;
+          name = "Slow Bongo";
+          url = "https://github.com/tuibird/slowbongo.git";
+        }
+      ];
+      states = {
+        privacy-indicator = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        "805fa1:slowbongo" = {
+          enabled = true;
+          sourceUrl = "https://github.com/tuibird/slowbongo.git";
+        };
+      };
+      version = 2;
+    };
+
+    pluginSettings = {
+      privacy-indicator = ../config/noctalia/plugins/privacy-indicator.json;
+      "805fa1:slowbongo" = ../config/noctalia/plugins/slowbongo.json;
+    };
   };
+
+  home.packages = with pkgs; [
+    evtest
+  ];
 }

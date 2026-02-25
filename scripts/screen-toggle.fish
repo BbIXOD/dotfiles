@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set -l tries 5
+set tries 5
 for i in (seq $tries)
     if set -q WAYLAND_DISPLAY; and wlr-randr >/dev/null 2>&1
         break

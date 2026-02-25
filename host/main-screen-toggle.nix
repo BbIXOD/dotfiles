@@ -36,7 +36,7 @@ in
     # hide cursor after 1 second of inactivity
     seat * hide_cursor 1000
 
-    exec "PATH=${runtimePath} ${nixDir}/scripts/screen-toggle.fish"
+    exec "PATH=${runtimePath} ${../scripts/screen-toggle.fish} 2>> /tmp/sysc-greet.log"
 
     # Startup applications
     # Start gslapper with default wallpaper (forked to background with IPC socket)

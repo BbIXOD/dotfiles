@@ -2,16 +2,10 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { buffer = 0 })
-
-vim.api.nvim_set_keymap("n", "<Leader>y", '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<Leader>y", '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>Y", '"+Y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<Leader>Y", '"+Y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<Leader>p", '"+p', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>p", '"+p', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", "<Leader>P", '"+P', { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Leader>P", '"+P', { noremap = true, silent = true })
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y', { desc = "Copy to clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>Y", '"+Y', { desc = "Copy till the end to clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "Paste from clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>P", '"+P', { desc = "Paste from clipboard above cursor" })
 
 vim.keymap.set("i", "<c-e>", function()
   local nldocs = require("noice.lsp.docs")
@@ -26,10 +20,10 @@ vim.keymap.set("n", "<leader>,", function()
 end, { desc = "Open buffers" })
 
 if vim.g.neovide then
-  vim.api.nvim_set_keymap("v", "<sc-c>", '"+y', { noremap = true })
-  vim.api.nvim_set_keymap("n", "<sc-v>", 'l"+P', { noremap = true })
-  vim.api.nvim_set_keymap("v", "<sc-v>", '"+P', { noremap = true })
-  vim.api.nvim_set_keymap("c", "<sc-v>", '<C-o>l<C-o>"+<C-o>P<C-o>l', { noremap = true })
-  vim.api.nvim_set_keymap("i", "<sc-v>", '<ESC>l"+Pli', { noremap = true })
-  vim.api.nvim_set_keymap("t", "<sc-v>", '<C-\\><C-n>"+Pi', { noremap = true })
+  vim.keymap.set("v", "<sc-c>", '"+y', { desc = "Copy to system clipboard" })
+  vim.keymap.set("n", "<sc-v>", 'l"+P', { desc = "Paste from system clipboard" })
+  vim.keymap.set("v", "<sc-v>", '"+P', { desc = "Paste from system clipboard" })
+  vim.keymap.set("c", "<sc-v>", '<C-o>l<C-o>"+<C-o>P<C-o>l', { desc = "Paste from system clipboard" })
+  vim.keymap.set("i", "<sc-v>", '<ESC>l"+Pli', { desc = "Paste from system clipboard" })
+  vim.keymap.set("t", "<sc-v>", '<C-\\><C-n>"+Pi', { desc = "Paste from system clipboard" })
 end
