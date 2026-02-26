@@ -2,7 +2,7 @@ return {
   {
     "hiphish/rainbow-delimiters.nvim",
     event = "VeryLazy",
-    opts = function()
+    config = function()
       require("rainbow-delimiters.setup").setup({
         strategy = {
           [""] = "rainbow-delimiters.strategy.global",
