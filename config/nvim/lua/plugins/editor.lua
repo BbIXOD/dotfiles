@@ -18,7 +18,9 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
-      use_popups_for_input = false,
+      use_popups_for_input = true,
+      close_if_last_window = true,
+      popup_border_style = "rounded",
     },
   },
   {

@@ -16,6 +16,7 @@
       cursor_blink_interval = "0.5 ease-in-out";
       window_padding_width = 10;
       font_size = 12;
+      allow_remote_control = true;
       # dynamic_background_opacity = true;
       # background_opacity = "0.5";
       # background_blur = 5;

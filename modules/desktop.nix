@@ -16,13 +16,9 @@ in
     enable = true;
     package = mangoPkg.mango;
   };
-
-  xdg.portal = {
+  programs.hyprland = {
     enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-wlr
-    ];
+    withUWSM = true;
   };
 
   services.sysc-greet = {

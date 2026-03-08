@@ -7,11 +7,10 @@
     trash-cli
     dragon-drop
     wayfreeze
-
     luarocks
-
-    # hyphen
-    # hyphenDicts.en-us
+    grim
+    swappy
+    wf-recorder
   ];
 
   fonts.packages = with pkgs; [

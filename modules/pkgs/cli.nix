@@ -31,14 +31,15 @@
     libarchive
     libqalculate
     nix-tree
+    calibre
+    alsa-utils
+    tintin
+    hyprpicker
 
     atool
     rar
     unrar
     zip
     unzip
-
-    alsa-utils
-    tintin
   ];
 }

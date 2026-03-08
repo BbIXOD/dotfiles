@@ -5,18 +5,6 @@
       url = "github:EdenEast/nightfox.nvim";
       flake = false;
     };
-    still = {
-      url = "github:faergeek/still";
-      flake = false;
-    };
-    msnap = {
-      url = "github:atheeq-rhxn/msnap";
-      flake = false;
-    };
-    mango-zoom = {
-      url = "github:slapah/MangoWC-Zoom";
-      flake = false;
-    };
     helium.url = "github:ForkPrince/nur-packages";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
     home-manager.url = "github:nix-community/home-manager";

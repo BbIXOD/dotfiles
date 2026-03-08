@@ -15,6 +15,10 @@ in
     shellAliases = {
       ls = "eza --icons";
       yazi = "y";
+      nvim = "run-tui nvim";
+      btop = "run-tui btop";
+      gp = "git add . && git commit && git push";
+      gc = "git add . && git commit";
       cd = "z";
     };
     interactiveShellInit = (builtins.readFile "${inputs.nightfox}/extra/nightfox/nightfox.fish") + ''

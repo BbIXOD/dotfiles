@@ -1,0 +1,12 @@
+#!/usr/bin/env fish
+
+set direction $argv[1]
+set changeto $argv[2]
+
+set pre (hyprctl -j activewindow | jq -r '.address')
+hyprctl dispatch movefocus $direction
+set post (hyprctl -j activewindow | jq -r '.address')
+
+if [ $pre = $post ]
+  hyprctl dispatch workspace $changeto
+end

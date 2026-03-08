@@ -1,0 +1,37 @@
+{
+  config,
+  ...
+}:
+{
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = null;
+    portalPackage = null;
+    systemd.enable = false;
+    settings = {
+      general = {
+        layout = "scrolling";
+        resize_on_border = true;
+        no_focus_fallback = true;
+      };
+      input = {
+        kb_layout = "us, ua";
+        kb_options = "grp:win_space_toggle";
+      };
+      monitor = [
+        "eDP-1, disable"
+      ];
+      scrolling = {
+        fullscreen_on_one_column = true;
+        follow_min_visible = 0;
+        # wrap_focus = false;
+        # wrap_swapcol = false;
+      };
+      exec-once = [
+        "noctalia-shell"
+      ];
+    };
+  };
+  xdg.configFile."uwsm/env".source =
+    "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
+}

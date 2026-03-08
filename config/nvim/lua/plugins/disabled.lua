@@ -16,10 +16,6 @@ return {
     enabled = false,
   },
   {
-    "folke/which-key.nvim",
-    enabled = false,
-  },
-  {
     "stevearc/dressing.nvim",
     enabled = false,
   }

@@ -6,7 +6,6 @@
 
   programs.noctalia-shell = {
     enable = true;
-    systemd.enable = true;
     settings = lib.mkForce (builtins.fromJSON (builtins.readFile ../config/noctalia/settings.json));
     colors = lib.mkForce {
       mError = "#ffb2bf";
@@ -40,6 +39,10 @@
         }
       ];
       states = {
+        screen-shot-and-record = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
         privacy-indicator = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";

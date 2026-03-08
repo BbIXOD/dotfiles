@@ -3,12 +3,11 @@
   environment.systemPackages = with pkgs; [
     marksman
     clang-tools
+    rust-analyzer
 
     flutter
     nodejs
-    deno
     python315
-    dotnet-sdk_10
     dotnet-sdk
     gcc
     dart
@@ -17,9 +16,12 @@
     cargo
     jdk
     godot
+    ruby
 
     gnumake
     cmake
+
+    ollama-vulkan
   ];
   virtualisation.docker = {
     enable = true;

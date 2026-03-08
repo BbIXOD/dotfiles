@@ -46,3 +46,5 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.opt_local.syntax = "OFF" -- no syntax parsing
   end,
 })
+
+require("config.border-sync")

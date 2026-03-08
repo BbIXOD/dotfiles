@@ -3,7 +3,7 @@
   programs.git = {
     enable = true;
     settings = {
-      user.name = "Maksym Diachok"; 
+      user.name = "Maksym Diachok";
       user.email = "maksdyachok2005@gmail.com";
       push.default = "current";
       color.ui = "auto";
@@ -11,6 +11,11 @@
       pull.rebase = "true";
       init.defaultBranch = "main";
       advice.defaultBranchName = false;
+
+      diff.tool = "codediff";
+      merge.tool = "codediff";
+      mergetool.codediff.cmd = ''nvim "$MERGED" -c "CodeDiff merge \"$MERGED\""'';
+      difftool.codediff.cmd = ''nvim "$LOCAL" "$REMOTE" +"CodeDiff file $LOCAL $REMOTE"'';
     };
     ignores = [
       ".geminiignore"

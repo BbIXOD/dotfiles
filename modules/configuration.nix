@@ -1,6 +1,5 @@
 {
   pkgs,
-  username,
   nixDir,
   ...
 }:
@@ -17,17 +16,16 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    settings = {
+      auto-optimise-store = true;
+      builders-use-substitutes = true;
+      substituters = [ "https://hyprland.cachix.org" ];
+      trusted-substituters = [ "https://hyprland.cachix.org" ];
+      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    };
   };
 
   documentation.enable = false;
-
-  nix.settings = {
-    auto-optimise-store = true;
-    builders-use-substitutes = true;
-    fallback = false;
-  };
-
-  networking.hostName = "nixos";
 
   programs.nix-ld = {
     enable = true;
@@ -39,5 +37,6 @@
     ];
   };
 
+  networking.hostName = "nixos";
   system.stateVersion = "25.11";
 }
