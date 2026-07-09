@@ -5,6 +5,7 @@ let
   make-icon = name: text: { inherit name text; };
 in
 {
+  hm.xdg.mimeApps.defaultApplications."inode/directory" = [ "yazi.desktop" ];
   hm.programs.yazi = {
     enable = true;
     shellWrapperName = "y";

@@ -43,7 +43,7 @@
   };
 
   documentation.enable = false;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
   zramSwap.enable = true;
   services.earlyoom.enable = false;
   systemd.oomd.enable = true;

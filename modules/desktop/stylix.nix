@@ -3,9 +3,16 @@
   pkgs,
   ...
 }:
+let
+  stylix-conf = {
+    enable = true;
+    base16Scheme = "${inputs.nightfox}/extra/nightfox/base16.yaml";
+    polarity = "dark";
+  };
+in
 {
+  imports = [ inputs.stylix.nixosModules.stylix ];
   hm = {
-    imports = [ inputs.stylix.homeModules.stylix ];
     stylix = {
       enable = true;
       base16Scheme = "${inputs.nightfox}/extra/nightfox/base16.yaml";
@@ -24,6 +31,7 @@
         neovim.enable = false;
         starship.enable = false;
         kitty.enable = false;
+        emacs.enable = false;
         zen-browser = {
           profileNames = [ "default" ];
           enableCss = false;
@@ -54,5 +62,11 @@
       XCURSOR_THEME = "Bibata-Modern-Ice";
       XCURSOR_SIZE = "24";
     };
+  };
+
+  stylix = {
+    enable = true;
+    base16Scheme = "${inputs.nightfox}/extra/nightfox/base16.yaml";
+    polarity = "dark";
   };
 }

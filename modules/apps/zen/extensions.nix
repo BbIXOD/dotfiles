@@ -42,15 +42,19 @@ in
         };
         "{036a55b4-5e72-4d05-a06c-cba2dfcc134a}" = "traduzir-paginas-web";
         "harper@writewithharper.com" = "private-grammar-checker-harper";
-        "{a8332c60-5b6d-41ee-bfc8-e9bb331d34ad}" = "surfingkeys_ff";
+        "vimium-c@gdh1995.cn" = "vimium-c";
         "{b9edf38a-e293-4606-a088-e63cd4e56d2d}" = "modern-for-hacker-news";
+        "{0d7cafdd-501c-49ca-8ebb-e3341caaa55e}" = "youtube-nonstop";
       };
     };
     profiles.default = {
       sine = {
         enable = true;
         mods = [
-          # "Nebula"
+          "zen-command-palette"
+          # "unloaded-tabs"
+          "Arc-2.0"
+          "c9ee0d97-d2d6-40fd-8f85-549fe000b868" # loading bar
         ];
       };
     };

@@ -41,7 +41,17 @@ After first rebuild you can use `rebuild` script (pass -u to update)
 - ofc steam and bottles are manual
 - prob get wallpapers
 - reduce mic internal boost with aslactl
+- get doom emacs ```bash
+  git clone <https://github.com/doomemacs/doomemacs> ~/.config/emacs
+  ~/.config/emacs/bin/doom install
+
+  ```
+
+  ```
+
+```
 
 ## Home manager standalone
 
 I aim to not differentiate home manager config with nixos config, so not.
+```

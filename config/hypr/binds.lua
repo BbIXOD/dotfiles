@@ -53,8 +53,8 @@ bind("mouse:272", hl.dsp.window.drag())
 bind("mouse:273", hl.dsp.window.drag())
 
 -- Locked media/hardware keys
-bind("XF86AudioRaiseVolume", Ipc .. "volume-up", { no_mod = true, repeating = true })
-bind("XF86AudioLowerVolume", Ipc .. "volume-down", { no_mod = true, repeating = true })
+bind("XF86AudioRaiseVolume", Ipc .. "volume-up 5", { no_mod = true, repeating = true })
+bind("XF86AudioLowerVolume", Ipc .. "volume-down 5", { no_mod = true, repeating = true })
 bind("XF86AudioMute", Ipc .. "volume-mute", { no_mod = true, locked = true })
 bind("XF86MonBrightnessUp", Ipc .. "brightness-up", { no_mod = true, repeating = true })
 bind("XF86MonBrightnessDown", Ipc .. "brightness-down", { no_mod = true, repeating = true })
@@ -75,6 +75,7 @@ bind("Return", Terminal)
 bind("SHIFT + Return", toggleterm)
 bind("D", Menu)
 bind("E", FileManager)
+bind("B", Browser)
 bind("M", "noctalia msg panel-toggle control-center home")
 bind("N", "noctalia msg panel-toggle control-center calendar")
 

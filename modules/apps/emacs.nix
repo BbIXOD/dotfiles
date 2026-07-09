@@ -3,7 +3,6 @@
   ...
 }:
 {
-  services.emacs.package = pkgs.emacs-unstable;
   nixpkgs.overlays = [
     (import (
       builtins.fetchTarball {
@@ -12,4 +11,20 @@
     ))
   ];
   services.emacs.enable = true;
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.symbols-only
+    symbola
+  ];
+
+  environment.systemPackages = with pkgs; [
+    pandoc
+    shellcheck
+  ];
+
+  hm = { config, ... }: {
+    home.sessionPath = [
+      "${config.xdg.configHome}/emacs/bin"
+    ];
+  };
 }

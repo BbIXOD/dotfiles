@@ -2,6 +2,6 @@ Mod = "SUPER"
 
 Terminal = "kitty"
 FileManager = "kitty -e yazi"
-Browser = "helium"
+Browser = "zen-beta"
 Menu = "vicinae toggle"
 Ipc = "noctalia msg "

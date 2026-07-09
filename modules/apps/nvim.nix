@@ -1,7 +1,7 @@
 {
   pkgs,
-  self,
   nixDir,
+  my-lib,
   ...
 }:
 {
@@ -28,6 +28,15 @@
         lua require("config.lazy")
         lua require("langmapper").automapping({ global = true, buffer = true })'';
     };
+    xdg.mimeApps.defaultApplications = my-lib.mime-for "nvim.desktop" "text" [
+      "plain"
+      "markdown"
+      "x-python"
+      "x-csrc"
+      "x-c++src"
+      "html"
+      "css"
+    ];
   };
 
   my.link-to-conf."nvim" = "${nixDir}/config/nvim";

@@ -10,10 +10,9 @@
     git
     git-crypt
 
-    gemini-cli
-    code-cursor
     cursor-cli
     opencode
+    codex
 
     eza
     bat

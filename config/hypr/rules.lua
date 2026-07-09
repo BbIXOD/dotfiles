@@ -45,7 +45,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "browser",
 	match = {
-		class = "^helium$",
+		class = "^(helium|zen.*)$",
 	},
 	workspace = "1",
 })
