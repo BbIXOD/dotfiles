@@ -51,10 +51,11 @@ in
       sine = {
         enable = true;
         mods = [
-          "zen-command-palette"
+          "Nebula"
+          # "zen-command-palette"
           # "unloaded-tabs"
-          "Arc-2.0"
-          "c9ee0d97-d2d6-40fd-8f85-549fe000b868" # loading bar
+          # "Arc-2.0"
+          # "c9ee0d97-d2d6-40fd-8f85-549fe000b868" # loading bar
         ];
       };
     };

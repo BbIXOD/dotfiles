@@ -55,8 +55,8 @@
               green = "#81b29a";
               cyan = "#63cdcf";
               blue = "#719cd6";
-              magenta = "9d79d6";
-              white = "cdcecf";
+              magenta = "#9d79d6";
+              white = "#cdcecf";
             };
             bright = {
               black = "#192330";
@@ -66,8 +66,8 @@
               green = "#81b29a";
               cyan = "#63cdcf";
               blue = "#719cd6";
-              magenta = "9d79d6";
-              white = "cdcecf";
+              magenta = "#9d79d6";
+              white = "#cdcecf";
             };
           };
         };
@@ -88,5 +88,6 @@
     ffmpeg
     gifski
     jq
+    gpu-screen-recorder
   ];
 }

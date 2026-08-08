@@ -2,6 +2,7 @@
   pkgs,
   self,
   pkgsConfig,
+  inputs,
   ...
 }:
 {
@@ -20,9 +21,15 @@
     settings = {
       auto-optimise-store = true;
       builders-use-substitutes = true;
-      substituters = [ "https://hyprland.cachix.org" ];
+      substituters = [
+        "https://hyprland.cachix.org"
+        "https://attic.xuyh0120.win/lantian"
+      ];
       trusted-substituters = [ "https://hyprland.cachix.org" ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      trusted-public-keys = [
+        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      ];
     };
   };
   nixpkgs.config = pkgsConfig;
@@ -30,6 +37,7 @@
     (final: _prev: {
       pnpm_10_29_2 = final.pnpm_10;
     })
+    inputs.nix-cachyos-kernel.overlays.pinned
   ];
 
   programs.nix-ld = {
@@ -41,9 +49,8 @@
       curl
     ];
   };
-
   documentation.enable = false;
-  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
   zramSwap.enable = true;
   services.earlyoom.enable = false;
   systemd.oomd.enable = true;

@@ -27,6 +27,11 @@
         "shell.nix"
         ".envrc"
         ".direnv/"
+
+        ".codegraph/"
+        ".opencode/"
+        "opencode.json"
+        ".codex"
       ];
     };
 

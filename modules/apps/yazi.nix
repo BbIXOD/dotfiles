@@ -40,16 +40,16 @@ in
           (make-keymap-s "l" "plugin smart-enter")
           (make-keymap-s "<C-y>" ''shell -- dragon-drop -x -i -T "$1"'')
           (make-keymap-s "P" "shell -- wl-paste > pasted")
-          (make-keymap-s "y" [
-            ''shell -- for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list''
-            "yank"
-          ])
           (make-keymap-s "<C-o>" "shell -- setsid nemo . ")
           (make-keymap-s "d" [
             "escape --visual"
             ''shell -- trash-put "$@"''
           ])
           (make-keymap-s "!" ''shell "$SHELL" --block'')
+
+          (make-keymap "y" ["yank" ''plugin clipboard -- --action=copy''] "Copy")
+          # (make-keymap "x" ["yank --cut" ''plugin clipboard -- --action=cut''] "Cut")
+          (make-keymap "P" ''plugin clipboard -- --action=paste'' "Paste from clipboard")
 
           (make-keymap [ "R" "o" ] "plugin recycle-bin -- open" "Open Bin")
           (make-keymap [ "R" "e" ] "plugin recycle-bin -- empty" "Clear Bin")
@@ -94,7 +94,8 @@ in
         compress
         recycle-bin
         smart-enter
-        smart-paste
+        # smart-paste
+        clipboard
         ;
     };
   };

@@ -77,7 +77,7 @@ widgetSpacing = 6
 
     [bar.widgets]
     background_opacity = 0.84999999999999998
-    border_width = 2.0
+    border_width = 0.0
     capsule = true
     center = [ "privacy", "clock", "audio_visualizer", "cat", "caffeine", "screenshot", "recorder", "spacer_2" ]
     end = [
@@ -744,6 +744,7 @@ type = "noctalia/bongocat:cat"
 scale = 0.90000000000000002
 
 [widget.media]
+hide_artist = true
 max_length = 160
 min_length = 40
 title_scroll = "on_hover"

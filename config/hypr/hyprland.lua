@@ -5,6 +5,9 @@ require("rules")
 
 package.path = "./?.lua;" .. package.path
 
+local external = "HDMI-A-1"
+local internal = "eDP-1"
+
 hl.config({
 	general = {
 		layout = "scrolling",
@@ -28,20 +31,30 @@ hl.config({
 })
 
 local function toggle_monitor()
-	hl.monitor({ output = "eDP-1", disabled = hl.get_monitor("HDMI-A-1") ~= nil })
+	local m = hl.get_monitor(external)
+
+	if m ~= nil then
+		hl.monitor({ output = internal, disabled = true })
+		return
+	end
+
+	hl.monitor({ output = internal, disabled = false })
 end
 
+hl.on("config.reloaded", toggle_monitor)
 hl.on("monitor.added", toggle_monitor)
+-- hl.on("monitor.removed", toggle_monitor)
 
 hl.monitor({
-	output = "eDP-1",
+	output = internal,
 	mode = "1920x1080@60",
 	position = "1920x0",
 	scale = 1.25,
-	disabled = false,
+	disabled = true,
 })
 
 hl.monitor({
-	output = "HDMI-A-1",
+	output = external,
 	mode = "1920x1080@74.97",
+	bitdepth = 8,
 })

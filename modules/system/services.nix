@@ -1,19 +1,26 @@
 { pkgs, ... }:
 
 {
-  services.irqbalance.enable = true;
-  services.openssh.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  services.gvfs.enable = true;
-  services.upower.enable = true;
-  hardware.bluetooth.enable = true;
-  services.udisks2.enable = true;
-  services.flatpak.enable = true;
-  services.locate = {
-    enable = true;
-    package = pkgs.plocate;
-    interval = "daily";
+  services = {
+    irqbalance.enable = true;
+    openssh = {
+      enable = true;
+      passwordAuthentication = false;
+      kbdInteractiveAuthentication = false;
+      permitRootLogin = "no";
+    };
+    gnome.gnome-keyring.enable = true;
+    gvfs.enable = true;
+    upower.enable = true;
+    udisks2.enable = true;
+    flatpak.enable = true;
+    locate = {
+      enable = true;
+      package = pkgs.plocate;
+      interval = "daily";
+    };
   };
+  hardware.bluetooth.enable = true;
 
   security.wrappers.gsr-kms-server = {
     owner = "root";

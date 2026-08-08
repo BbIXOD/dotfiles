@@ -6,6 +6,7 @@
     wlr-randr
     trash-cli
     dragon-drop
+    libnotify
   ];
 
   fonts.packages = with pkgs; [

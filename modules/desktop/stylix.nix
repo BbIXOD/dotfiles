@@ -3,13 +3,6 @@
   pkgs,
   ...
 }:
-let
-  stylix-conf = {
-    enable = true;
-    base16Scheme = "${inputs.nightfox}/extra/nightfox/base16.yaml";
-    polarity = "dark";
-  };
-in
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
   hm = {
@@ -58,6 +51,7 @@ in
       };
     };
 
+    home.pointerCursor.enable = true;
     home.sessionVariables = {
       XCURSOR_THEME = "Bibata-Modern-Ice";
       XCURSOR_SIZE = "24";

@@ -5,13 +5,6 @@ local change_focus = require("actions.change-focus")
 local perf_mode = require("actions.perf-mode")
 
 hl.config({
-	gesture = {
-		"2, pinchin, mod: " .. Mod .. ", cursorZoom, 1.6, mult",
-		"2, pinchout, mod: " .. Mod .. ", cursorZoom, 0.625, mult",
-		"3, left, dispatcher, movefocus, l",
-		"3, right, dispatcher, movefocus, r",
-		"3, vertical, workspace",
-	},
 	gestures = {
 		workspace_swipe_invert = false,
 		workspace_swipe_distance = 150,
@@ -21,14 +14,14 @@ hl.config({
 
 hl.gesture({
 	fingers = 3,
-	direction = "left",
-	action = "scroll_move"
+	direction = "horizontal",
+	action = "scroll_move",
 })
 
 hl.gesture({
 	fingers = 3,
 	direction = "vertical",
-	action = "workspace"
+	action = "workspace",
 })
 
 hl.gesture({
@@ -63,9 +56,8 @@ bind("XF86MonBrightnessDown", Ipc .. "brightness-down", { no_mod = true, repeati
 bind("SHIFT + P", "systemctl poweroff")
 bind("SHIFT + X", "systemctl suspend")
 bind("SHIFT + R", "systemctl reboot")
-bind("SHIFT + Q", hl.dsp.exit())
+bind("SHIFT + E", hl.dsp.exit())
 bind("SHIFT + G", perf_mode)
-
 
 -- Launchers / toggles
 bind("SHIFT + S", Ipc .. "settings-toggle")

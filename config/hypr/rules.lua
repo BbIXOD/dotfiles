@@ -56,6 +56,7 @@ hl.window_rule({
 		class = "^(steam_app_.*|gamescope|SteamGame|steam)$",
 	},
 	workspace = "6 silent",
+	suppress_event = "x11configurerequest"
 })
 
 hl.layer_rule({
@@ -63,7 +64,7 @@ hl.layer_rule({
   match = {
     namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd)$",
   },
-  ignore_alpha = 0.5,
+  ignore_alpha = 0.86,
   blur = true,
   blur_popups = true,
 })

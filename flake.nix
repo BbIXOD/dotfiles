@@ -22,10 +22,6 @@
         home-manager.follows = "home-manager";
       };
     };
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,20 +30,29 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sysc-greet = {
-      url = "github:Nomadcxx/sysc-greet";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     xremap = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    msnap = {
+      url = "github:xtheeq/msnap";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     nightfox = {
       url = "github:EdenEast/nightfox.nvim";
       flake = false;
     };
     betterfox = {
       url = "github:yokoffing/Betterfox";
+      flake = false;
+    };
+    tlp-src = {
+      url = "github:linrunner/TLP";
       flake = false;
     };
   };
@@ -71,6 +76,7 @@
       nixDir = "/home/${username}/nixos";
       pkgsConfig = {
         allowUnfree = true;
+        permittedInsecurePackages = [ "electron-40.10.5" ];
       };
     in
     {

@@ -3,14 +3,18 @@
   ...
 }:
 {
-  nixpkgs.overlays = [
-    (import (
-      builtins.fetchTarball {
-        url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-      }
-    ))
-  ];
-  services.emacs.enable = true;
+  nixpkgs.config.packageOverrides = pkgs: {
+    myEmacs = pkgs.emacs31.pkgs.withPackages (
+      epkgs: with epkgs; [
+        treesit-grammars.with-all-grammars
+      ]
+    );
+  };
+
+  services.emacs = {
+    enable = true;
+    package = pkgs.myEmacs;
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.symbols-only
@@ -18,8 +22,24 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    myEmacs
     pandoc
     shellcheck
+    libtool
+    isort
+    pyenv
+    emacsPackages.pytest
+    html-tidy
+    stylelint
+    js-beautify
+    emacs-lsp-booster
+    (aspellWithDicts (
+      dicts: with dicts; [
+        en
+        en-computers
+        uk
+      ]
+    ))
   ];
 
   hm = { config, ... }: {
