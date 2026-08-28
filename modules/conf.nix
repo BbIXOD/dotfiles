@@ -34,9 +34,6 @@
   };
   nixpkgs.config = pkgsConfig;
   nixpkgs.overlays = [
-    (final: _prev: {
-      pnpm_10_29_2 = final.pnpm_10;
-    })
     inputs.nix-cachyos-kernel.overlays.pinned
   ];
 

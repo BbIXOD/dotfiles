@@ -3,6 +3,9 @@
   environment.systemPackages = with pkgs; [
 
     flutter
+    firebase-tools
+    supabase-cli
+    pnpm
     nodejs
     python315
     dotnet-sdk

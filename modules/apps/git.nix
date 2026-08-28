@@ -24,6 +24,7 @@
         url."git@github.com:".insteadOf = "https://github.com/";
       };
       ignores = [
+        ".projectile"
         "shell.nix"
         ".envrc"
         ".direnv/"
@@ -38,9 +39,9 @@
     programs.lazygit = {
       enable = true;
       settings = {
-        git.pagers = [
+        git.diffRenderers = [
           {
-            pager = ''
+            command = ''
               delta --dark --paging=never \
                         --line-numbers --hyperlinks \
                         --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"'';

@@ -5,9 +5,11 @@
     irqbalance.enable = true;
     openssh = {
       enable = true;
-      passwordAuthentication = false;
-      kbdInteractiveAuthentication = false;
-      permitRootLogin = "no";
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
+      };
     };
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;

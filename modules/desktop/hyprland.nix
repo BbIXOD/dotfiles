@@ -25,4 +25,20 @@
 
   my.link-to-conf."hypr" = "${nixDir}/config/hypr";
   environment.etc."hypr/stubs".source = "${pkgs.hyprland}/share/hypr/stubs";
+
+  xdg.portal = {
+    enable = true;
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+    ];
+
+    config = {
+      hyprland = {
+        default = [ "hyprland" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "gtk" ];
+      };
+    };
+  };
 }

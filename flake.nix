@@ -76,7 +76,6 @@
       nixDir = "/home/${username}/nixos";
       pkgsConfig = {
         allowUnfree = true;
-        permittedInsecurePackages = [ "electron-40.10.5" ];
       };
     in
     {
@@ -95,6 +94,7 @@
 
         modules = [
           (import-tree ./modules)
+          (import-tree ./secrets)
         ];
       };
     };

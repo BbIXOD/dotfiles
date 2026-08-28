@@ -64,7 +64,7 @@ in
     firejail.enable = true;
     gnupg.agent = {
       enable = true;
-      pinentryPackage = with pkgs; pinentry-gtk2;
+      pinentryPackage = with pkgs; pinentry-qt;
       enableSSHSupport = true;
     };
   };
